@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 
 // Define the Express configuration method
-module.exports = function() {
+module.exports = function () {
 	// Create a new Express application instance
 	const app = express();
 
@@ -24,11 +24,11 @@ module.exports = function() {
 		extended: true
 	}));
 	app.use(bodyParser.json());
-    app.use(methodOverride());
-    //handle the use of PUT or DELETE methods
-    //override with POST having ?_method=DELETE or
-    // ?_method=PUT
-    app.use(methodOverride('_method'));
+	app.use(methodOverride());
+	//handle the use of PUT or DELETE methods
+	//override with POST having ?_method=DELETE or
+	// ?_method=PUT
+	app.use(methodOverride('_method'));
 
 	// Configure the 'session' middleware
 	app.use(session({
