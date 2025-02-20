@@ -8,7 +8,7 @@ const MovieSchema = new Schema({
     year: { type: Number, min: 1800, max: 2025},
     genre: String,
     description: String,
-    rating: Number,
+    rating: { type: Number, min: 0, max: 10},
     watched: Boolean,
     
     

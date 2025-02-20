@@ -46,12 +46,12 @@ const updateMovie = async (parent, args) => {
     }
 };
 
-const deleteMovie = async (root, params) => {
+const deleteTask = async (root, params) => {
     try {
-        const deletedMovie = await Movie.findOneAndRemove({ email: params.email }).exec();
+        const deletedMovie = await Movie.findOneAndRemove({ title: params.title }).exec();
 
         if (!deletedMovie) {
-            throw new Error(`Movie with email ${params.email} not found`);
+            throw new Error(`Movie with title ${params.title} not found`);
         }
 
         return deletedMovie;
@@ -62,12 +62,12 @@ const deleteMovie = async (root, params) => {
 };
 
 // ADDED CODE
-const deleteTask = async (parent, args) => {
+const deleteMovie = async (parent, args) => {
     try {
         const deletedMovie = await Movie.findByIdAndDelete(args.id).exec();
 
         if (!deletedMovie) {
-            throw new Error(`Movie with email ${params.email} not found`);
+            throw new Error(`Movie with id ${params.id} not found`);
         }
 
         return deletedMovie;

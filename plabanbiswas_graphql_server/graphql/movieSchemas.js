@@ -106,22 +106,22 @@ const mutation = new GraphQLObjectType({
                         type: new GraphQLNonNull(GraphQLString)
                     },
                     title: {
-                        type: GraphQLString
+                        type: new GraphQLNonNull(GraphQLString)
                     },
                     year: {
-                        type: GraphQLInt
+                        type: new GraphQLNonNull(GraphQLInt)
                     },
                     genre: {
-                        type: GraphQLString
+                        type: new GraphQLNonNull(GraphQLString)
                     },
                     description: {
-                        type: GraphQLString
+                        type: new GraphQLNonNull(GraphQLString)
                     },
                     rating: {
-                        type: GraphQLInt
+                        type: new GraphQLNonNull(GraphQLInt)
                     },
                     watched: {
-                        type: GraphQLBoolean
+                        type: new GraphQLNonNull(GraphQLBoolean)
                     }
                 },
                 resolve: updateMovie
