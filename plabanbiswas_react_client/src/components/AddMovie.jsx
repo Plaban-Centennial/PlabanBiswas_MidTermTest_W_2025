@@ -40,12 +40,13 @@ const AddMovie = () => {
     let title, year, genre, description, rating, watched;
     const [addMovie, { data, loading, error }] = useMutation(ADD_MOVIE);
 
-    if (loading) return 'Submitting...';
+    if (loading) return <Spinner animation="border" />;
     if (error) return `Submission error! ${error.message}`;
 
     return (
-        <div className='entryform'>
-            <form
+        <div className='entryform p-4'>
+            <h2 className="mb-4">Add New Movie</h2>
+            <Form
                 onSubmit={e => {
                     e.preventDefault();
                     addMovie({
@@ -68,38 +69,55 @@ const AddMovie = () => {
                     navigate('/movielist');
                 }}
             >
-                <Form.Group>
-                    <Form.Label>Title:</Form.Label>
-                    <Form.Control type="text" name="title" ref={node => { title = node; }} placeholder="Title" />
+                <Form.Group className="mb-3 row align-items-center">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Title:</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control type="text" name="title" ref={node => { title = node; }} placeholder="Title" />
+                    </div>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label>Year:</Form.Label>
-                    <Form.Control type="text" name="year" ref={node => { year = node; }} placeholder="Year" />
+                <Form.Group className="mb-3 row align-items-center">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Year:</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control type="number" name="year" ref={node => { year = node; }} placeholder="Year" />
+                    </div>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label>Genre:</Form.Label>
-                    <Form.Control type="text" name="genre" ref={node => { genre = node; }} placeholder="Genre" />
+                <Form.Group className="mb-3 row align-items-center">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Genre:</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control type="text" name="genre" ref={node => { genre = node; }} placeholder="Genre" />
+                    </div>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label>Description:</Form.Label>
-                    <Form.Control type="text" name="description" ref={node => { description = node; }} placeholder="Description" />
+                <Form.Group className="mb-3 row align-items-center">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Description:</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control type="text" name="description" ref={node => { description = node; }} placeholder="Description" />
+                    </div>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label>Rating:</Form.Label>
-                    <Form.Control type="text" name="rating" ref={node => { rating = node; }} placeholder="Rating" />
+                <Form.Group className="mb-3 row align-items-center">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Rating:</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control type="number" name="rating" ref={node => { rating = node; }} placeholder="Rating" />
+                    </div>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label>Watched:</Form.Label>
-                    <Form.Check type="checkbox" name="watched" ref={node => { watched = node; }} />
+                <Form.Group className="mb-3 row align-items-center">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Watched:</Form.Label>
+                    <div className="col-sm-10">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" name="watched" ref={node => { watched = node; }} id="watchedCheckbox" />
+                            <label className="form-check-label" htmlFor="watchedCheckbox">
+                                {/* Watched */}
+                            </label>
+                        </div>
+                    </div>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">Add Movie</Button>
-            </form>
+            </Form>
         </div>
     );
 }
