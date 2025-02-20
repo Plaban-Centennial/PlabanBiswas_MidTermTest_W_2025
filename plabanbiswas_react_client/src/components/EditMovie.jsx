@@ -190,7 +190,7 @@ function EditMovie(props) {
                         <div className="form-check">
                             <input className="form-check-input" type="checkbox" name="watched" checked={movie.watched} onChange={handleInputChange} id="watchedCheckbox" />
                             <label className="form-check-label" htmlFor="watchedCheckbox">
-                                Watched
+                                {/* Watched */}
                             </label>
                         </div>
                     </div>
