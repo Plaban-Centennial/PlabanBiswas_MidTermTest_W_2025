@@ -1,8 +1,9 @@
 import React from 'react';
 import { gql, useQuery, useMutation } from "@apollo/client";
 import Table from 'react-bootstrap/Table';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 import './entryform.css';
 
 // GraphQL query to get all movies
@@ -32,6 +33,7 @@ const DELETE_MOVIE = gql`
 const MovieList = () => {
     const { loading, error, data, refetch } = useQuery(GET_MOVIES);
     const [deleteMovie] = useMutation(DELETE_MOVIE);
+    const navigate = useNavigate();
 
     const handleDelete = (id) => {
         deleteMovie({ variables: { id } })
@@ -46,7 +48,7 @@ const MovieList = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Movie ID</th>
                         <th>Title</th>
                         <th>Year</th>
                         <th>Genre</th>
@@ -67,9 +69,9 @@ const MovieList = () => {
                             <td>{movie.rating}</td>
                             <td>{movie.watched ? 'Yes' : 'No'}</td>
                             <td>
-                                <Link to={`/editmovie/${movie.id}`}>Edit</Link>
-                                {' | '}
-                                <button onClick={() => handleDelete(movie.id)}>Delete</button>
+                                <Button variant="warning" onClick={() => navigate(`/editmovie/${movie.id}`)}>Edit</Button>
+                                {' '}
+                                <Button variant="danger" onClick={() => handleDelete(movie.id)}>Delete</Button>
                             </td>
                         </tr>
                     ))}
@@ -77,7 +79,7 @@ const MovieList = () => {
             </Table>
 
             <div className="center">
-                <button className="center" onClick={() => refetch()}>Refetch</button>
+                <Button className="center" onClick={() => refetch()}>Refetch</Button>
             </div>
         </div>
     );
