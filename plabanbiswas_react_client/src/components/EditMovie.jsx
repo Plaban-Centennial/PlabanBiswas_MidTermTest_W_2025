@@ -116,72 +116,84 @@ function EditMovie(props) {
     };
 
     return (
-        <div>
+        <div className='entryform p-4'>
             <h1>Edit Movie</h1>
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formTitle">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="title"
-                        placeholder="Enter title"
-                        value={movie.title}
-                        onChange={handleInputChange}
-                    />
+                <Form.Group className="mb-3 row align-items-center" controlId="formTitle">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Title</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control
+                            type="text"
+                            name="title"
+                            placeholder="Enter title"
+                            value={movie.title}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                 </Form.Group>
 
-                <Form.Group controlId="formYear">
-                    <Form.Label>Year</Form.Label>
-                    <Form.Control
-                        type="number"
-                        name="year"
-                        placeholder="Enter year"
-                        value={movie.year}
-                        onChange={handleInputChange}
-                    />
+                <Form.Group className="mb-3 row align-items-center" controlId="formYear">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Year</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control
+                            type="number"
+                            name="year"
+                            placeholder="Enter year"
+                            value={movie.year}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                 </Form.Group>
 
-                <Form.Group controlId="formGenre">
-                    <Form.Label>Genre</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="genre"
-                        placeholder="Enter genre"
-                        value={movie.genre}
-                        onChange={handleInputChange}
-                    />
+                <Form.Group className="mb-3 row align-items-center" controlId="formGenre">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Genre</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control
+                            type="text"
+                            name="genre"
+                            placeholder="Enter genre"
+                            value={movie.genre}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                 </Form.Group>
 
-                <Form.Group controlId="formDescription">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="description"
-                        placeholder="Enter description"
-                        value={movie.description}
-                        onChange={handleInputChange}
-                    />
+                <Form.Group className="mb-3 row align-items-center" controlId="formDescription">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Description</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control
+                            type="text"
+                            name="description"
+                            placeholder="Enter description"
+                            value={movie.description}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                 </Form.Group>
 
-                <Form.Group controlId="formRating">
-                    <Form.Label>Rating</Form.Label>
-                    <Form.Control
-                        type="number"
-                        name="rating"
-                        placeholder="Enter rating"
-                        value={movie.rating}
-                        onChange={handleInputChange}
-                    />
+                <Form.Group className="mb-3 row align-items-center" controlId="formRating">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Rating</Form.Label>
+                    <div className="col-sm-10">
+                        <Form.Control
+                            type="number"
+                            name="rating"
+                            placeholder="Enter rating"
+                            value={movie.rating}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                 </Form.Group>
 
-                <Form.Group controlId="formWatched">
-                    <Form.Label>Watched</Form.Label>
-                    <Form.Check
-                        type="checkbox"
-                        name="watched"
-                        checked={movie.watched}
-                        onChange={handleInputChange}
-                    />
+                <Form.Group className="mb-3 row align-items-center" controlId="formWatched">
+                    <Form.Label className="col-sm-2 col-form-label text-start">Watched</Form.Label>
+                    <div className="col-sm-10">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" name="watched" checked={movie.watched} onChange={handleInputChange} id="watchedCheckbox" />
+                            <label className="form-check-label" htmlFor="watchedCheckbox">
+                                Watched
+                            </label>
+                        </div>
+                    </div>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
